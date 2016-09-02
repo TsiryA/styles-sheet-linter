@@ -1,0 +1,22 @@
+%vertical-section {
+  position: relative;
+  margin: 50px 0 50px 0;
+  background: $secondary-color-07;
+  width:100%;
+  height: 1px;
+}
+
+%vertical-section-content {
+  width:70px;
+  position: absolute;
+  top:-20px;
+  left:0;
+  right:0;
+  margin: 0 auto;
+  background: $white;
+  padding:10px;
+  font-family: $font-family-regular-book;
+  font-size: $font-size-small;
+  color:$secondary-color-07;
+  letter-spacing: 1px;
+}

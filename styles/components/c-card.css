@@ -1,0 +1,614 @@
+$card-mini-namespace: c-mini-card !default;
+
+.$(card-mini-namespace) {
+  margin: 25px 0;
+  padding: 0 10%;
+  /*@media (--desktop) {
+    padding: 0;
+  }*/
+  &__content { /* The Container */
+    @extend .text-center;
+  	color: $black;
+  	&__title {
+      h3 {
+        @mixin font-settings $font-size-small, , bold, medium;
+        text-transform: uppercase;
+      }
+		}
+		&__description { /* Description */
+			font-size: $font-size-xsmall;
+      p {
+        line-height: $font-size-medium;
+      }
+  	}
+  }
+  &_image__container {
+    @media (--desktop) {
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      font-size: 80px;
+      color: $secondary-color-05;
+    }
+
+    .homepage-how-it-works & {
+      .card__image {
+        opacity: 0;
+      }
+    }
+  }
+}
+.row.mini-card__row {
+  @media (--desktop) {
+    margin: 0 0 10px;
+  }
+}
+.row.card__row, .benefit__row {
+  @media (--desktop) {
+    margin: 45px 0;
+  }
+}
+
+.c-card__link {
+  cursor:pointer;
+  text-decoration: none !important;
+  display: block;
+  .c-card__visual {
+    background: black;
+  }
+  img {
+    display: block;
+  }
+  &:hover img {
+    opacity:0.5;
+  }
+}
+
+@each $card-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-theme='$(i)'][data-card-type='card--level'].c-card {
+    & .c-card__title--container {
+      background-color: $card-color;
+    }
+    & .c-card__description{
+      color: $card-color;
+      h3 {
+        font-size:$font-size-medium;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  [data-theme='$(i)'][data-card-type='card--case-study'],
+  [data-theme='$(i)'][data-card-type='card--project'],
+  [data-theme='$(i)'][data-card-type='card--winner'],
+  [data-theme='$(i)'][data-card-type='card--select'] {
+    .c-card__title {
+      color: $card-color;
+      border-bottom: 1px solid $card-color;
+      padding: 0 0 25px;
+      margin-bottom: 25px;
+      line-height: 25px;
+      margin-top: 0;
+      word-break: break-all;
+      @media (--desktop) {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    .c-card__author__name {
+      color: $card-color;
+    }
+
+    .btn--video-play {
+      &:hover,
+      &.is-hover {
+        .icon.play-button {
+          color: $card-color;
+          &:after {
+            border-left-color: $secondary-color-04;
+          }
+        }
+      }
+      .icon.play-button {
+        color: $card-color;
+        transition: all .2s cubic-bezier(0, 0.17, 0.7, 1.16);
+        position: absolute;
+        top: 32%;
+        left: 40%;
+      }
+    }
+
+    .c-card__link {
+      &:hover .c-card__cta .btn {
+        color: $card-color;
+        background-color: $secondary-color-04;
+        border-color: transparent;
+
+        .icon {
+          color: $card-color;
+        }
+      }
+    }
+
+    .c-card__cta {
+      .btn {
+        font-family: $default-font-family;
+        background-color: $card-color;
+        color: $secondary-color-06;
+        border-radius: 0;
+        &:hover,
+        &.hover {
+          color: $card-color;
+          background-color: $secondary-color-04;
+          border-color: transparent;
+          .icon {
+            color: $card-color;
+          }
+        }
+      }
+      .disabled {
+        border: none;
+      }
+    }
+
+    .c-card__progressbar {
+      margin: -28px 0 34px 0;
+      .progress {
+        height: 2px;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: $card-color;
+        .progress-bar {
+          background-color: $color-progress-bar;
+        }
+      }
+    }
+
+    .c-card__duration {
+      padding:0 0 0 15px;
+      .col-md-6 {
+        @media (--all-phones) {
+          float: left;
+          width: 50%
+        }
+        @media (--portrait-tablets) {
+          float: left;
+          width: 50%
+        }
+      }
+      .c-card__duration-alignment {
+        padding:0 0 0 10px;
+      }
+      p {
+        color:$secondary-color-08;
+        text-transform: uppercase;
+        font-size: $font-size-tiny;
+        margin-bottom: 2px;
+        &:nth-child(2) {
+          color:$card-color;
+          font-size: $font-size-xsmall;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &:hover {
+      img{
+      opacity: .5;
+      }
+    }
+
+  }
+
+  [data-theme='$(i)'][data-card-type='card--select'] {
+    .c-card__title {
+      color: $card-color;
+      border-bottom: 0;
+      padding: 0;
+    }
+
+    .c-card__cta {
+      .btn {
+        color: $secondary-color-04;
+      }
+    }
+
+    &.selected-project .c-card__textual {
+      background-color: $card-color;
+    }
+  }
+}
+
+.col__error-404,
+.col__projects,
+.col__winners__landing {
+  & .c-card {
+    /* to check if nothing broken
+    /*margin-bottom: 25px;
+    @media (--desktop) {
+      margin-bottom: 0;
+    }*/
+  }
+  &__header {
+    h2 {
+      color: $white;
+    }
+  }
+}
+
+[data-card-type='card--level']{
+  height: auto;
+  margin: 50px 0;
+
+  @media (--desktop) {
+    height: 480px;
+  }
+
+  @media (--portrait-tablets) {
+    height: auto;
+    padding: 0 20%;
+  }
+
+  @media (--desktop) {
+    margin: 0;
+    max-width: 344px;
+  }
+
+  .c-card__title--container {
+    padding: 10px;
+
+    .c-cart__title--information {
+      color: $secondary-color-04;
+      width: 48%;
+      display:inline-block;
+      .card__paragraph {
+        font-family: $font-family-regular-bold;
+        font-weight: $font-weight-bold;
+        text-align: right;
+        margin-right: 8px;
+        margin-bottom: 0;
+      }
+    }
+    .c-cart__title {
+      color: $secondary-color-04;
+      width: 49%;
+      display: inline-block;
+      border-left: 1px solid;
+      h3 {
+        font-family: $font-family-regular-bold;
+        text-align: left;
+        font-weight: $font-weight-bold;
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+  .c-card__picture {
+    height: auto;
+  }
+  .c-card__description--container {
+    display: inline-block;
+    color: $secondary-color-08;
+    background-color: $secondary-color-06;
+    height: auto;
+    padding: 20px 10px 10px;
+    @media (--desktop) {
+      height: 110px;
+      padding: 20px 10px;
+    }
+
+    .c-card__description {
+      margin: 10px 0;
+      h2 {
+        margin: 0;
+      }
+    }
+    .c-card__description--information {
+      .card__paragraph {
+        font-family: $font-family-regular-book;
+        line-height: $font-leading-normal;
+        color:$white;
+        @media (--landscape-tablets) {
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+.c-card[data-card-type='card--project'], .c-card[data-card-type='card--winner'] {
+  float: left;
+  margin: 15px 0;
+  width:100%;
+  @media (--desktop) {
+    width: 30%;
+    height: 514.5px;
+    max-height: 514.5px;
+    margin: 15px;
+  }
+
+  @media (--landscape-tablets) {
+    width: 46.1%;
+    /*linked to the right space too large*/
+    margin: 15px;
+  }
+
+  @media (--portrait-tablets) {
+    margin: 15px 15px;
+    /*linked to the right space too large*/
+    width: 43.5%;
+  }
+
+  .c-card__visual {
+    /* background-color: $secondary-color-06; */ Dias Link to the 50% color bug
+    @media (--desktop) {
+      /* max-width: 285px; */
+      height: auto;
+    }
+  }
+  .c-card__textual {
+    text-align: left;
+    padding: 30px;
+    background-color: $color-grey;
+    @media (--desktop) {
+      /*max-width: 285px;*/
+      height: 200px;
+    }
+  }
+  .c-card__subtitle {
+    color: $white;
+    @mixin font-settings $font-size-xsmall, 10px, bold, bold;
+    text-transform: uppercase;
+  }
+  .c-card__title {
+    @mixin font-settings $font-size-medium, normal, bold, bold, bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .c-card__description {
+    color: $white;
+    line-height: 20px;
+  }
+  .c-card__btn {
+    width: 100%;
+    padding: 10px 45px;
+  }
+  .c-card__cta {
+    @media (--desktop) {
+      /*max-width: 285px;*/
+    }
+  }
+}
+
+[data-card-type='card--case-study'],
+[data-card-type='card--winner'],
+[data-card-type='card--select'] {
+  .c-card__visual {
+    @media (--desktop) {
+      height: auto;
+    }
+  }
+  .c-card__visual {
+    background: $secondary-color-06;
+  }
+  .c-card__textual {
+    text-align: left;
+    padding: 30px;
+    background-color: $color-grey;
+    @media (--desktop) {
+      height: 200px;
+    }
+  }
+  .c-card__subtitle {
+    @mixin font-settings $font-size-xsmall, 10px, bold, bold;
+    color: $white;
+    text-transform: uppercase;
+  }
+  .c-card__title {
+    @mixin font-settings $font-size-medium, 10px, bold, bold;
+    text-transform: uppercase;
+  }
+  .c-card__description {
+    color: $white;
+  }
+  .c-card__btn {
+    width: 100%;
+  }
+  .c-card__video-container {
+    position: relative;
+    /* top: 3px; */
+    .c-card__video {
+      width: 100%;
+      object-fit: inherit;
+      @media (--desktop) {
+        height: 214px;
+      }
+    }
+    .c-section__content & {
+      text-align: initial;
+    }
+  }
+  .c-card__cta {
+    @media (--desktop) {
+      /*max-width: 285px;*/
+    }
+  }
+}
+
+[data-card-type='card--select'] {
+  .c-card__textual {
+    .c-card__title {
+      margin-bottom: 3px;
+    }
+    @media (--desktop) {
+      height: auto;
+    }
+  }
+
+  .c-card__title {
+    @mixin font-settings $font-size-medium, 24px, bold, bold;
+    text-transform: uppercase;
+  }
+
+  .c-card__cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    @media (--desktop) {
+      /*max-width: 285px;*/
+    }
+    .icon {
+      color: $secondary-color-04;
+      font-size: $font-size-extra-large;
+    }
+    .icon-star {
+      transform: rotate(20deg);
+    }
+  }
+
+  .c-card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0;
+    + .c-card__btn {
+      border-left: 1px solid $secondary-color-06;
+    }
+  }
+}
+
+.selected-project {
+  .c-card__title,
+  .c-card__subtitle {
+    color: $secondary-color-04 !important;
+  }
+}
+
+[data-card-type='card--winner'] {
+  @media (--desktop) {
+    width: 30%;
+    height: 514.5px;
+    max-height: 514.5px;
+    margin: 14px 15px 14px 15px;
+    float: left;
+  }
+  .c-card__video-container {
+    position: relative;
+    top: 0;
+  }
+  .c-card__author__name {
+    color: $white;
+    @mixin font-settings $font-size-xsmall, 10px, bold, bold;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    @media (--all-phones) {
+      line-height: 15px;
+    }
+    @media (--all-tablets) {
+      line-height: 15px;
+    }
+  }
+
+  .c-card__author__title {
+    margin-top: 25px;
+  }
+}
+
+[data-card-type='card--benefits'] {
+  @media (--desktop) {
+    margin: 25px;
+  }
+  .c-mini-card_image__container {
+    @media (--desktop) {
+      margin: 0;
+      padding: 20px 75px;
+    }
+  }
+}
+
+.project-list .c-card[data-card-type='card--select'] {
+  @media (--desktop) {
+    width: 50%;
+    float: left;
+    margin: 15px 0;
+  }
+}
+
+
+.c-card[data-card-type='card--case-study'],
+.c-card[data-card-type='card--study'] {
+  @media (--desktop) {
+    width: 30%;
+    float: left;
+    margin: 15px;
+  }
+  @media (--portrait-tablets) {
+    margin: 15px 15px;
+    width: 43%;
+  }
+
+}
+.c-card[data-card-type='card--select'] {
+  float: left;
+  margin: 15px 0;
+  @media (--desktop) {
+    width: 45%;
+  } /* DD */
+  .c-card__visual {
+    background: transparent;
+  }
+  .c-card__textual {
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .btn {
+    @media (--all-phones) {
+      padding: 10px;
+    }
+  }
+  .c-card__subtitle {
+    font-size: 15px;
+  }
+}
+
+
+
+.c-card[data-card-type='card--case-study'] {
+  margin: 15px;
+  float: left;
+}
+
+.c-card[data-card-type='card--case-study']:hover,
+.c-card[data-card-type="card--winner"]:hover,
+.c-card[data-card-type='card--project']:hover {
+  a.btn.c-card__btn{
+    background-color: $secondary-color-04;
+  }
+  .c-card__video-container{
+    background-color: $secondary-color-04;
+    img.c-card__thumbnail{
+      opacity: .5;
+    }
+  }
+}
+
+.c-card[data-card-type="card--winner"] {
+  @media (--all-phones) {
+    margin:25px 0px;
+  }
+  @media (--all-tablets) {
+    margin:25px 0px;
+  }
+}
+
+.c-card a {
+    text-decoration: none;
+}
+
+.c-card[data-card-type=card--project] .c-card__duration .c-card__duration-alignment{
+   @media (--all-tablets) {
+     padding-left: 39px;
+   }
+ }

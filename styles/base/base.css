@@ -1,0 +1,23 @@
+body {
+  font: normal 100% / normal $default-font-family;
+  text-size-adjust: 100%;  //fix for iOS
+  overflow-x: hidden !important;
+  font-family: -apple-system, BlinkMacSystemFont, $default-font-family;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+
+.hidecontent { display:none; }
+
+.error-theme { background: $primary-color-02; }
+
+.no-border { border-bottom: none !important; }
+
+.nofloat { float: none !important; }
+
+.nopadding {
+	margin: 0 !important;
+	padding: 0 !important;
+}

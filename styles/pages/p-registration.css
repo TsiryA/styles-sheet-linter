@@ -1,0 +1,14 @@
+.c-section-box-register {
+	.button__container {
+	  @media (--desktop) {
+	    margin-top: 5%;
+			display: flex;
+	    align-items: center;
+			justify-content: space-between;
+	  }
+	}
+	.g-recaptcha {
+	  margin: 0 auto;
+	  width: 232px;
+	}
+}

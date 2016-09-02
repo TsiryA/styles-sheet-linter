@@ -1,0 +1,547 @@
+/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+
+/* Dropzone css */
+/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+@-webkit-keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+
+@-moz-keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+
+@keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+@-moz-keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.1);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+}
+
+
+@-moz-keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.1);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.1);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+}
+
+
+.dropzone,.preview-progress__container {
+  &.dz-clickable {
+    .col-md-10 & {
+      @media (--desktop) {
+        margin-left: -2px;
+        margin-right: -3px;
+      }
+    }
+    cursor: pointer;
+    * {
+      cursor: default;
+    }
+    .dz-message {
+      cursor: pointer;
+      * {
+        cursor: pointer;
+      }
+    }
+  }
+  &.dz-started .dz-message {
+    /* display: none; */
+  }
+  &.dz-drag-hover {
+    border-style: solid;
+    .dz-message {
+      opacity: 0.5;
+    }
+  }
+  .dz-message {
+    background: $primary-color-03;
+    min-height: 200px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    span {
+      padding: 100px;
+    }
+    &:hover {
+      background-color: $secondary-color-04;
+      .icon,
+      .title,
+      .subtitle {
+        color: $primary-color-03;
+      }
+      .dz-format {
+        p {
+          color: $secondary-color-04;
+        }
+      }
+    }
+    .dz-message-content {
+      margin: 25px 0 25px 0;
+    }
+    .dz-format {
+      background-color: $secondary-color-04;
+      height: 70px;
+      line-height: 70px;
+      color: $secondary-color-07;
+      letter-spacing: 1px;
+      text-align: center;
+      p {
+        font-size: $font-size-small;
+        text-transform: none;
+      }
+    }
+
+  }
+  .dz-message-wrapper {
+    padding-top: 30px;
+    .icon {
+      color: $secondary-color-04;
+      font-size: $font-size-mega-large;
+      font-weight: bold;
+      display: inline-flex;
+    }
+    .title {
+       @mixin font-settings $font-size-medium, ,bold, bold;
+       margin-bottom: 3px;
+    }
+    .subtitle {
+       @mixin font-settings $font-size-small;
+       color: $secondary-color-04;
+       margin-bottom: 3px;
+    }
+  }
+  .dz-preview {
+    position: relative;
+    display: block;
+    vertical-align: top;
+    /* margin: 16px; */
+    min-height: 100px;
+    &:hover {
+      z-index: 1000;
+      .dz-details {
+        opacity: 1;
+      }
+    }
+    &.dz-file-preview {
+      .dz-image {
+        border-radius: 20px;
+        background: #999;
+        background: linear-gradient(to bottom, #eee, #ddd);
+      }
+      .dz-details {
+        opacity: 1;
+      }
+    }
+    &.dz-image-preview {
+      .dz-details {
+        transition: opacity 0.2s linear;
+      }
+    }
+    &:hover .dz-details {
+      opacity: 1;
+    }
+    .dz-details {
+      z-index: 20;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 13px;
+      min-width: 95%;
+      max-width: 95%;
+      padding: 2em 0;
+      color: $primary-color-03;
+      line-height: 150%;
+      margin-left: 0;
+      .dz-size {
+        display: none;
+      }
+      .dz-filename {
+        white-space: nowrap;
+        color: $secondary-color-07;
+        text-transform: uppercase;
+        &:hover span {
+          /*  border: 1px solid rgba(200, 200, 200, 0.8);
+           background-color: rgba(255, 255, 255, 0.8); */
+        }
+        &:not(:hover) {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          span {
+            /* border: 1px solid transparent; */
+          }
+        }
+      }
+    }
+    &:hover .dz-image img {
+      transform: scale(1.05, 1.05);
+      filter: blur(8px);
+    }
+    .dz-image {
+      border-radius: 20px;
+      overflow: hidden;
+      width: 120px;
+      height: 120px;
+      position: relative;
+      display: block;
+      z-index: 10;
+      img {
+        display: none;
+      }
+    }
+
+    .dz-remove-mark,
+    .dz-success-mark,
+    .dz-error-mark {
+      cursor: pointer;
+      position: absolute;
+      display: block;
+      top: 50%;
+      right: 0;
+      margin-top: -30px;
+      width: 30px;
+      height: 30px;
+      @each $text-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+        [data-theme='$(i)'] & .icon-tick {
+          color: $text-color;
+          font-size: 30px;
+        }
+      }
+      .icon-cross {
+        color: $secondary-color-07;
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .dz-error-mark,
+    .dz-buttons .dz-success-mark {display: none;}
+
+    &.dz-success {
+      .dz-buttons:hover .dz-success-mark,
+      .dz-buttons .dz-remove-mark  {
+          display: none;
+      }
+      .dz-buttons .dz-success-mark,
+      .dz-buttons:hover .dz-remove-mark  {
+          display: inline;
+      }
+    }
+
+    &.dz-error {
+      .dz-error-mark {
+        opacity: 1;
+        animation: ease-in-out 2s cubic-bezier(0.77, 0, 0.175, 1);
+        .icon {
+          color: $color-alert;
+        }
+      }
+      .dz-filename, .icon {
+        color: $color-alert;
+      }
+      .dz-success-mark {
+        opacity: 0;
+      }
+    }
+
+    .dz-success-mark svg, .dz-error-mark svg {
+      display: block;
+      width: 54px;
+      height: 54px;
+    }
+    &.dz-processing .dz-progress {
+      opacity: 1;
+      transition: all 0.2s linear;
+    }
+    &.dz-complete .dz-progress {
+      /* opacity: 0; */
+      transition: opacity 0.4s ease-in;
+    }
+    &:not(.dz-processing) .dz-progress {
+      animation: pulse 6s ease infinite;
+    }
+    .dz-progress {
+      opacity: 1;
+      z-index: 1000;
+      pointer-events: none;
+      position: absolute;
+      height: 2px;
+      top: 55%;
+      width: 100%;
+      background: $secondary-color-09;
+      transform: scale(1);
+      border-radius: 8px;
+      overflow: hidden;
+      .dz-upload {
+        background: $primary-color-03;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        transition: width 300ms ease-in-out;
+      }
+    }
+    &.dz-error {
+      .dz-error-message {
+        display: block;
+      }
+      &:hover .dz-error-message {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+    .dz-error-message {
+      pointer-events: none;
+      z-index: 1000;
+      position: absolute;
+      display: block;
+      transition: opacity 0.3s ease;
+      border-radius: 8px;
+      font-size: 10px;
+      color: $white;
+      overflow: hidden;
+      /*color: $color-grey;*/
+      height: 25px;
+      top: 60%;
+      left: 8px;
+      width: 50%;
+      background: transparent;
+      padding: 0.5em 1.2em;
+    }
+  }
+}
+
+@each $text-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-theme='$(i)'].c-section-box-submit-work {
+      h2 {
+        color: $text-color;
+      }
+      .dz-filename {
+        font-family: $font-family-regular-bold;
+      }
+      .dz-success .dz-filename {
+        color: $text-color;
+      }
+      .dz-message.on-drag {
+        background-color: $secondary-color-04;
+        border-top:1px solid $text-color;
+        border-left:1px solid $text-color;
+        border-right:1px solid $text-color;
+
+        .icon,
+        .title,
+        .subtitle {
+          color: $text-color;
+        }
+
+        .dz-format {
+          background-color: $text-color;
+        }
+      }
+
+      .dz-message {
+        background: $text-color;
+        &:hover{
+          background-color: $secondary-color-04;
+          border-top:1px solid $text-color;
+          border-left:1px solid $text-color;
+          border-right:1px solid $text-color;
+
+          .icon,
+          .title,
+          .subtitle {
+            color: $text-color;
+          }
+
+          .dz-format {
+            background-color: $text-color;
+          }
+        }
+      }
+
+
+
+      .btn-primary--blue {
+        background: $text-color;
+      }
+
+      .preview-progress__container .dz-progress .dz-upload {
+        background: $text-color;
+      }
+
+      .preview-progress__container .dz-error .dz-progress .dz-upload {
+        background: red;
+      }
+  }
+}
+
+
+
+
+
+
+.c-section-box-submit-work {
+  h2 {
+    color: $primary-color-03;
+  }
+  .form__group {
+    .btn {
+      font-family: $default-font-family;
+    }
+  }
+}
+
+@each $text-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-theme='$(i)'].c-section-box-submit-work-additional {
+    h2 {
+      color: $text-color;
+    }
+    .form__group {
+      label.form__label {
+        background-color: $color-project;
+        color:$white;
+      }
+      .btn-primary {
+        background-color: $text-color;
+        &:hover {
+          span, .icon {
+            color: $text-color;
+          }
+        }
+      }
+      /*hover state*/
+      &:hover{
+        label.form__label {
+          background-color: $secondary-color-04;
+          color:$text-color;
+        }
+      }
+    }
+  }
+}
+
+.dz-filename.onload{
+  margin-left: 20px;
+}

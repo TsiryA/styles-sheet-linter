@@ -1,0 +1,97 @@
+$feature-text-namespace: c-feature-text !default;
+
+.$(feature-text-namespace) {
+  &__text-container {
+    margin: 10px;
+
+    .$(feature-text-namespace)__text {
+      @mixin font-settings $font-size-small, 20px, bold, bold;
+      text-transform: uppercase;
+
+      @media (--desktop) {
+        @mixin font-settings $font-size-large, 34px, bold, bold;
+      }
+
+      @each $text-color, $i in ($secondary-color-04, $white, $white, $white), (1, 2, 3, 4) {
+        [data-feature-theme='$(i)'] & {
+          color: $text-color;
+        }
+      }
+
+      span {
+        display: inline-block;
+        .homepage-text-section & {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__text-container--alternate {
+    @media (--desktop) {
+      margin: 10px;
+    }
+    .$(feature-text-namespace)__text--sibling {
+      display: inline-block;
+      position: absolute;
+      height: 30px;
+      padding: 8px 5px 4px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      transition: all 0.5s ease;
+      @media (--desktop) {
+        height: 56px;
+      }
+      @each $alternate-background-color, $alternate-text-color, $i in ($secondary-color-04, $primary-color-01, $primary-color-02, $primary-color-03), ($white, $secondary-color-05, $secondary-color-05, $secondary-color-05), (1, 2, 3, 4) {
+        [data-feature-theme='$(i)'] & {
+          color: $alternate-text-color;
+          background-color: $alternate-background-color;
+        }
+      }
+    }
+    .$(feature-text-namespace)__text {
+      @mixin font-settings 18px, 35px, bold, bold;
+      display: inline-block;
+      height: 30px;
+      overflow: hidden;
+      padding: 8px 5px 4px;
+      text-transform: uppercase;
+
+      @media (--desktop) {
+        @mixin font-settings $font-size-extra-large, 34px, bold, bold;
+        height: 56px;
+      }
+
+      @each $alternate-background-color, $alternate-text-color, $i in ($secondary-color-04, $primary-color-01, $primary-color-02, $primary-color-03), ($white, $secondary-color-05, $secondary-color-05, $secondary-color-05), (1, 2, 3, 4) {
+        [data-feature-theme='$(i)'] & {
+          color: $alternate-text-color;
+          /* background-color: $alternate-background-color; */
+        }
+      }
+
+      &-value {
+        display: inline-block;
+        word-wrap: break-word;
+        white-space: nowrap;
+
+        + span {
+          margin-top: 15px;
+          @media (--desktop) {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+
+    .homepage-text-section & {
+      opacity: 0;
+    }
+  }
+}
+
+.c-feature-text[data-feature-theme="2"]
+.c-feature-text__text-container--alternate
+.c-feature-text__text {
+  box-decoration-break: clone;
+}

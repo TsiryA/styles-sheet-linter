@@ -1,0 +1,83 @@
+$font-size: 12px;
+$border-radius: 20px;
+$min-width: 28px;
+$padding: 0 4px;
+
+.c-pagination {
+  text-align: center;
+  &__list {
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 0;
+    @mixin font-settings $font-size-xsmall, 10px, bold, bold;
+
+    li {
+      float: left;
+      padding: $padding;
+      width: 36px;
+      border-radius: $border-radius;
+      list-style: none;
+
+      a {
+        line-height: 27px;
+        font-size: 13px;
+        font-weight: 500;
+        color: $primary-color-01;
+        text-align: center;
+        text-decoration: none;
+        border-radius: $border-radius;
+        text-decoration: none;
+        background-clip: padding-box;
+        background-color: transparent;
+        letter-spacing: -1px;
+        -webkit-transition: 0.1s ease-out;
+        -moz-transition: 0.1s ease-out;
+        -o-transition: 0.1s ease-out;
+        transition: 0.1s ease-out;
+
+        &:hover {
+          float: left;
+          padding: $padding;
+          min-width: $min-width;
+          border-radius: $border-radius;
+        }
+
+        .icon {
+          font-size: $font-size-medium;
+          color: $primary-color-01;
+        }
+      }
+
+      .c-pagination__link--active {
+        color: $secondary-color-04;
+        background: $primary-color-01;
+        float: left;
+        padding: $padding;
+        min-width: $min-width;
+        border-radius: $border-radius;
+      }
+
+      .c-pagination__link--prev {
+        &:hover{
+            margin-left: -5px;
+        }
+      }
+
+      .c-pagination__link--next {
+        &:hover{
+            margin-right: -5px;
+        }
+      }
+
+      .c-pagination__link--next,
+      .c-pagination__link--prev {
+        vertical-align: bottom;
+        &:hover{
+          float: none;
+        }
+      }
+
+
+    }
+  }
+}

@@ -1,0 +1,143 @@
+.my-account-section {
+	.c-section__description {
+		font-size: $font-size-xsmall;
+		text-align: center;
+	}
+
+	.account-info__text {
+		.c-section__container {
+			padding: 25px 0;
+			.c-section__description{
+				font-size: $font-size-small;
+			}
+		}
+	}
+	.about__container {
+		textarea {
+			resize: none;
+			padding: 28px;
+		}
+	}
+
+	.work__container {
+		.input__container {
+			.label__container {
+				width: 85%;
+				float: left;
+			}
+			.tooltip-icon__container {
+				width: 10%;
+				float: right;
+				.tooltip {
+					left: 0 !important;
+					top: -37px !important;
+				}
+				span {
+					.icon {
+						color: $secondary-color-08;
+						font-size: $font-size-large;
+					}
+				}
+			}
+		}
+	}
+}
+
+.file-chooser {
+	&__text {
+		color: $black;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+
+p.myaccount-title-text {
+	font-family: $font-family-regular-bold;
+	margin-bottom: 0;
+	font-size: $font-size-medium;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.myaccount__upgrade {
+	margin: 0 0 0 0;
+	background-color: $secondary-color-04;
+
+	.myaccount__upgrade__header {
+		&--title {
+			padding: 30px 10px 30px 10px;
+			text-align: center;
+		}
+	}
+
+	.myaccount__upgrade__nav {
+		cursor: pointer;
+		overflow: hidden;
+		padding: 30px 20px 30px 20px;
+		@media (--desktop) {
+			padding: 30px 60px 30px 60px;
+		}
+		p {
+			float: left;
+		}
+		span {
+			float: right;
+		}
+	}
+
+	.myaccount__upgrade__content {
+		background-color: $secondary-color-09;
+		padding:70px 20px 70px 20px;
+		@media (--desktop) {
+			padding:70px 0 70px 0;
+		}
+
+		.myaccount-title-content {
+			margin-bottom: 0;
+			color: $white;
+			font-family: $font-family-regular-bold;
+			font-size: 20px;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			padding-bottom:50px;
+			@media (--desktop) {
+				padding-bottom:0;
+			}
+			span {
+				display: block;
+				font-size: 31px;
+				line-height: 31px;
+			}
+		}
+
+		.myaccount-description-content {
+			font-size: $font-size-small;
+			color: $secondary-color-08;
+			padding:0;
+			@media (--desktop) {
+				padding: 45px 0 0 0;
+			}
+		}
+	}
+}
+
+.form__input {
+	&.form-update {
+		background-color: transparent;
+		color: $secondary-color-08;
+	}
+}
+
+/*the textarea should not be resizable*/
+textarea#biofield_upgrade{
+	resize: none;
+}
+
+/*the text in the button on mobile*/
+.myaccount__upgrade .btn{
+	@media (--all-phones) {
+		height: 84px;
+	}
+}

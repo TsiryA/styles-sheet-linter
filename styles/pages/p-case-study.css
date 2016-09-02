@@ -1,0 +1,69 @@
+@each $project-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+	/*Case study detail*/
+  [data-project-level='$(i)']{
+  	.video__casestudy--subtitle {
+	    color: $project-color;
+	  }
+	  .row.c-section-projects-information {
+	  	.row {
+	  		background-color: $project-color;
+	  	}
+    }
+	  .video-casestudy-banner {
+      .btn--video-play {
+        &:hover {
+          .icon.play-button {
+            color: $project-color;
+          }
+        }
+        .icon.play-button {
+          color: $project-color;
+        }
+      }
+    }
+
+	}
+}
+
+
+.case-study {
+	.video__casestudy{
+		&>.col-md-6 {
+			@media (--all-tablets) {
+				width: 50%;
+		    float: left;
+		    text-align: left;
+			}
+			&:last-child {
+				@media (--all-tablets) {
+					text-align: right;
+				}
+			}
+		}
+		.video__casestudy--creator-title{
+			line-height: 25px;
+			margin-bottom: 0;
+		}
+		.video__casestudy--creator-name{
+			line-height: 26px;
+		}
+	}
+	.video__casestudy--subtitle{
+		@media (--all-tablets) {
+			font-family: $font-family-regular-bold;
+		}
+	}
+	.video__casestudy--description{
+		p{
+			margin-top: 0;
+		}
+		.description--title{
+			margin-top: 0;
+			margin-bottom: 0;
+			line-height: 40px;
+			@media (--all-tablets) {
+		    text-align: left;
+		  }
+		}
+	}
+}

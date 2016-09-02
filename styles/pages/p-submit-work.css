@@ -1,0 +1,34 @@
+/*Submit work additional*/
+/* .c-section-box-submit-work-additional {
+  h2 {
+    color: $primary-color-03;
+  }
+  .form__group {
+    label {
+      background-color: $primary-color-03;
+
+      &:hover {
+        background-color: $secondary-color-04;
+        color: $primary-color-03;
+      }
+    }
+    .btn-primary {
+      background: $primary-color-03;
+      &:hover {
+        span, .icon {
+          color: $primary-color-03;
+        }
+      }
+    }
+  }
+} */
+/* .c-section-box-submit-work {
+  h2 {
+    color: $primary-color-03;
+  }
+  .form__group {
+    .btn {
+      font-family: $default-font-family;
+    }
+  }
+} */

@@ -1,0 +1,223 @@
+$table-namespace: c-table !default;
+
+@each $table-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-theme='$(i)'].table-border-color {
+    border-left: 4px solid $table-color;
+  }
+  [data-theme='$(i)'].table-background-color {
+    background-color: $table-color;
+    border-left: 4px solid $table-color;
+  }
+}
+
+/* Style for common table */
+.$(table-namespace) {
+  &__myproject {
+    text-transform: uppercase;
+    .table-myproject {
+      text-align: left;
+      .table-responsive__data {
+        @media (--all-phones) {
+          padding-bottom: 65px;
+        }
+        @media (--all-tablets) {
+          padding-bottom: 65px;
+        }
+      }
+    }
+    .table-background-color {
+      color: $black;
+    }
+  }
+  margin:50px 0 50px 0;
+  .table {
+    color: $secondary-color-07;
+    thead {
+      font-family:$font-family-regular-book;
+      font-size: $font-size-small;
+      tr {
+        th {
+          border-bottom: none;
+          padding: 8px 8px 8px 0;
+        }
+      }
+      tr > th:nth-child(1) {
+        padding-left:30px;
+      }
+    }
+    tbody {
+      background-color: $color-table-black;
+      font-size: $font-size-medium;
+
+      tr {
+        border-spacing: 5px;
+        > td:nth-child(1) {
+          @media (--desktop) {
+            padding-left: 30px;
+          }
+        }
+        &.table-row-separator td {
+          padding: 2px;
+          background-color: $color-table-gray;
+        }
+      }
+
+      td {
+        padding: 20px 0 20px 0;
+        border-top: none;
+        font-size: $font-size-small;
+        text-align: left;
+      }
+    }
+  }
+}
+
+/* Style for responsive table - using the correct classes */
+.table-responsive {
+  border: none !important;
+  overflow-x: hidden !important;
+}
+
+.table-responsive,
+.table-responsive__thead,
+.table-responsive__tbody,
+.table-responsive__header,
+.table-responsive__data,
+.table-responsive__row {
+  @media (--all-phones) {
+    display: block;
+  }
+  @media (--all-tablets) {
+     display: block;
+  }
+}
+
+.table-responsive__thead
+.table-responsive__row {
+  @media (--all-phones) {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  @media (--all-tablets) {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
+/* .table-responsive__row {
+  @media (--all-phones) {
+    border: 1px solid $color-table-gray;
+  }
+  @media (--all-tablets) {
+    border: 1px solid $color-table-gray;
+  }
+}
+ */
+.table-responsive__data {
+  @media (--all-phones) {
+    /* Behave  like a "row" */
+    border: 0;
+    position: relative;
+    padding-left: 50%;
+  }
+  @media (--all-tablets) {
+    border: 0;
+    position: relative;
+    padding-left: 50%;
+  }
+  .table__data {
+    @media (--all-phones) {
+      padding-right: 20px;
+      text-align: right;
+      font-size: $font-size-xsmall;
+
+      .table-myproject & {
+        width: 50%;
+        float: right;
+      }
+    }
+    @media (--all-tablets) {
+      padding-right: 20px;
+      text-align: right;
+
+      .table-myproject & {
+        width: 50%;
+        float: right;
+      }
+    }
+  }
+}
+
+.table-responsive__data:before {
+  @media (--all-phones) {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 20px;
+    left: 20px;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  @media (--all-tablets) {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 20px;
+    left: 20px;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+}
+
+/* Label the data */
+@for $i from 1 to 4 {
+  .table-responsive__data:nth-of-type($i):before {
+    @media (--all-phones) {
+      content: attr(data-title);
+      width: 30%;
+      color: $secondary-color-07;
+      font-size: $font-size-xsmall;
+      white-space: inherit;
+    }
+    @media (--all-tablets) {
+      content: attr(data-title);
+      width: 30%;
+      color: $secondary-color-07;
+      font-size: $font-size-xsmall;
+    }
+  }
+}
+
+/* Three colors for table deco - Lime, green and blue */
+
+.table-border-color__lime {
+  border-left:4px solid $primary-color-01;
+}
+
+.table-color__lime {
+  color: $black;
+  border-left:4px solid $primary-color-01;
+  background-color: $primary-color-01;
+}
+
+.table-border-color__green {
+  border-left:4px solid $primary-color-02;
+}
+
+.table-color__green {
+  color: $black;
+  border-left:4px solid $primary-color-02;
+  background-color: $primary-color-02;
+}
+
+.table-border-color__blue {
+  border-left:4px solid $primary-color-03;
+}
+
+.table-color__blue {
+  color: $black;
+  border-left:4px solid $primary-color-03;
+  background-color: $primary-color-03;
+}

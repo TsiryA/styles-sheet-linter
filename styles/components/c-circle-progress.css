@@ -1,0 +1,21 @@
+.c-circle-progress {
+  display: block;
+
+  &__number {
+    @mixin font-settings $font-size-small, 14px, bold, bold;
+    display: block;
+    margin-left: 2px;
+    position: relative;
+    bottom: 57px;
+    left: 0;
+  }
+
+  &__metric {
+    @mixin font-settings $font-size-tiny, 15px;
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    bottom: 58px;
+    left: 0;
+  }
+}

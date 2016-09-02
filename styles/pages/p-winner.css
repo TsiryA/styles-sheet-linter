@@ -1,0 +1,38 @@
+@each $project-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+	[data-project-level='$(i)'].c-section-box__winner {
+		.c-banner__text-container{
+			.c-banner__subtitle {
+				color: $project-color;
+			}
+		}
+		.c-article__feature__text {
+			background-color: $project-color;
+		}
+		.c-article__winner__specification{
+			background-color: $project-color;
+		}
+
+  }
+}
+.c-section-box__winner {
+	.c-article__winner__video__details {
+		.c-article__buttons {
+			.btn {
+				background-color: $primary-color-02;
+			}
+
+		}
+	}
+}
+
+.col__winners__landing{
+	&__header .c-card[data-card-type="card--winner"]{
+		margin: 14px;
+	}
+	.card__row {
+		@media (--desktop) {
+			margin-top: 48px;
+		}
+	}
+
+}

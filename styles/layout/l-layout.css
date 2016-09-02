@@ -1,0 +1,149 @@
+body {
+  background-color: $secondary-color-05;
+}
+
+/* [data-theme="1"] {
+  background-color: $secondary-color-03;
+  font-weight: normal;
+  font-family: $font-family-regular-book;
+}
+
+[data-theme="2"] {
+  background-color: $secondary-color-06;
+  font-weight: normal;
+  font-family: $font-family-regular-book;
+} */
+
+@each $background-color, $i in ($secondary-color-05, $secondary-color-05, $primary-color-01, $primary-color-02, $primary-color-03, $secondary-color-06), (1, 2, 3, 4, 5, 6) {
+  [data-section-theme='$(i)'].row {
+    background-color: $background-color;
+  }
+}
+
+[class*='col-'] {
+  &.no-padding {
+    padding-right:0;
+    padding-left:0;
+  }
+}
+
+.register__container {
+  .c-section__description {
+    @mixin font-settings $font-size-small, , ,book;
+    margin: 20px 0 70px 0;
+  }
+}
+
+.container {
+  @media (--all-tablets) {
+    max-width: 1170px;
+  }
+  @media (--desktop) {
+    max-width: 1170px;
+  }
+}
+
+.container-fluid {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.container {
+  &.no-padding {
+    padding-right:0;
+    padding-left:0;
+  }
+}
+
+.col-center {
+   float: none;
+   margin-right: auto;
+   margin-left: auto;
+ }
+
+.pagination-row {
+  .c-section__container {
+    padding: 0 0 50px;
+  }
+}
+
+.registration-bottom-section {
+  margin-bottom: 50px;
+}
+.remaining__text-count {
+  float: right;
+}
+
+.c-section-box-submit-work-additional {
+  .h2__container {
+    .h2-title {
+      width: 90%;
+      display: inline-block;
+    }
+    .counter__container {
+      display: inline-block;
+      float: right;
+      color: $color-grey;
+      font-size: $font-size-medium;
+    }
+  }
+}
+.project-card__row {
+  padding: 40px 0;
+}
+.brand-container {
+  .c-section__header {
+    color: $white;
+  }
+}
+.homepage-brand-banner{
+  margin-top: -4px;
+}
+
+.error-msg-box {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  color: red;
+  padding: 7px 0 0 0;
+  text-align: left;
+}
+.l-page--reset-password {
+  .h1-title {
+    @media (--all-phones) {
+       margin-top: 0;
+    }
+    color: $secondary-color-08;
+  }
+  .subtitle {
+    margin-top: 40px;
+  }
+  .error-msg-box {
+    margin-left: 15px;
+  }
+}
+
+ol, ul {
+  li {
+    font-size: $font-size-small;
+  }
+}
+
+.l-page--reset-password .form__group {
+  @media (--all-phones) {
+       padding-bottom: 20px;
+    }
+}
+
+
+/* homepage box description text*/
+.homepage-level-section .c-card__description--information p.card__paragraph{
+  @media (--home-boxes) {
+       font-size: 12px;
+     }
+}
+
+/*Special add*/
+.c-section-card-type[data-section-theme="2"] .col__projects{
+  background-color: $you-may-like;
+}

@@ -1,0 +1,222 @@
+@each $level-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-user-level='$(i)'] {
+    /* Header Links */
+    .header__item-link {
+      &:hover,
+      &:active,
+      &.active {
+        span, .icon {
+          color: $level-color !important;
+        }
+      }
+    }
+/*     .icon-person {
+      &:hover,
+      &:active,
+      &.active {
+        color: $level-color !important;
+      }
+    } */
+    /* Information Banner */
+    /* .c-banner__subtitle {
+      color: $level-color;
+    } */
+    /* Article section sidebar */
+    /* .c-article__specification,
+    .c-article__feature__text {
+      background-color: $level-color;
+    }
+    .c-article__progress__container {
+      border-bottom: 1px solid $level-color;
+    } */
+    /* .c-article__buttons {
+      .btn-primary {
+        background: $level-color;
+        &:hover {
+          span, .icon {
+            color: $level-color;
+          }
+        }
+      }
+    } */
+    /* Pagination */
+    .c-pagination__list {
+      .c-pagination__link, .icon {
+        color: $level-color;
+        &:hover {
+          background-color: #222222;
+          /*color: $level-color;*/
+        }
+      }
+      .c-pagination__link--active {
+        background: $level-color;
+      }
+      .is-disabled {
+        a {
+          &:hover {
+            background: transparent;
+            cursor: default;
+            color: $level-color;
+          }
+        }
+      }
+      a.c-pagination__link--prev,
+      a.c-pagination__link--next {
+        &:hover {
+          background: transparent;
+        }
+      }
+      a.c-pagination__link--prev,
+      a.c-pagination__link--next {
+        .icon {
+          &:hover {
+            background: transparent;
+          }
+        }
+      }
+    }
+    /* Banner */
+    .c-section-projects-information {
+      .row {
+        background: $level-color;
+      }
+    }
+    /* Banner */
+    .row.registration-welcome-first,
+    .row.registration-return,
+    .row.c-welcome-banner,
+    .row.l-page--welcome-first {
+      background: $level-color;
+    }
+    /* Accounts page */
+    .row.c-data-account-theme {
+      background: $level-color;
+    }
+    .c-section-box-account {
+      .btn-default {
+        font-family: $default-font-family;
+      }
+      .btn-primary {
+        background: $level-color;
+        font-family: $default-font-family;
+        color: $secondary-color-06;
+
+        &:hover {
+          outline: 0;
+          border: none;
+          color: $level-color;
+          background: $secondary-color-04;
+        }
+      }
+    }
+    .hidecontent {
+      .btn-primary {
+        background: $level-color;
+        font-family: $default-font-family;
+        color: $secondary-color-06;
+
+        &:hover {
+          outline: 0;
+          border: none;
+          color: $level-color;
+          background: $secondary-color-04;
+        }
+      }
+    }
+
+    .myaccount__upgrade {
+      p.myaccount-title-text {
+        color:$level-color;
+        width: 85%;
+      }
+      .myaccount__upgrade__nav {
+        .icon {
+          color:$level-color;
+        }
+      }
+      .myaccount-title-content {
+        span {
+          color:$level-color;
+        }
+      }
+    }
+
+  }
+}
+
+@each $level-color, $i in ($secondary-color-01, $secondary-color-02, $secondary-color-03), (1, 2, 3) {
+  [data-user-level='$(i)'] {
+    /* Article section sidebar */
+    .c-article__specification {
+      li {
+        border-bottom: 1px solid $level-color;
+      }
+    }
+    .c-article__projects {
+      background-color: $level-color;
+    }
+    /* .c-article__buttons {
+      .btn-primary {
+        background: $level-color;
+      }
+    } */
+  }
+}
+
+/* Use this class if you want to have a responsive img */
+.img-responsive {
+  width: 100%;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+}
+/* Tooltip */
+.tooltip {
+  width: 100%;
+  background-color: $tooltip-background;
+  .tooltip-arrow {
+    display: none;
+  }
+  .tooltip-inner {
+    max-width: 100%;
+    color: $secondary-color-07;
+    background-color: transparent;
+    text-align: left;
+  }
+}
+.custom_ordered-list {
+  counter-reset: section;
+  .custom_ordered-list-item {
+    list-style: none;
+    padding-left: 5px;
+    &:before {
+      counter-increment: section;
+      content: counter(section)". ";
+    }
+    .custom_ordered-list-child {
+      counter-reset: subsection;
+      padding-left: 6px;
+      .custom_ordered-list-child-item {
+        list-style: none;
+        &:before {
+          counter-increment: subsection;
+          content: counter(section) "." counter(subsection)" ";
+        }
+      }
+    }
+  }
+}
+/* Backend error message */
+.validation-summary-errors {
+  list-style: none;
+  padding: 0;
+  li {
+    font-size: $font-size-xsmall;
+    font-family: $font-family-regular-book;
+    @media (--portrait-phones) {
+      margin-left: -8px;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+.c-tracker {
+  background: $secondary-color-04;
+
+  &__title {
+    @mixin font-settings $font-size-medium, 24px, bold, bold;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    @mixin font-settings $font-size-xsmall, 20px, normal, medium, 1px;
+    text-transform: uppercase;
+    color: $secondary-color-07;
+    &--left {
+      @mixin font-settings $font-size-xsmall, 20px, normal, medium, 1px;
+      text-transform: uppercase;
+      color: $secondary-color-07;
+      text-align: left;
+      display: block;
+    }
+  }
+
+  &__content {
+    margin-top: 25px;
+    max-height: 675px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  &__content--progress-bar {
+    height: 1000px;
+    margin-top: 25px;
+    max-height: 690px;
+    overflow: hidden;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    height: 120px;
+    transition: all 0.5s ease;
+
+    &__title {
+      @mixin font-settings $font-size-xsmall, 14px, bold, bold;
+      display: block;
+      color: $white;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    &__subtitle {
+      @mixin font-settings $font-size-medium, 20px, bold, bold;
+      display: block;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .c-circle-progress {
+      height: 80px;
+    }
+  }
+}
+
+@each $color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-tracker-theme='$(i)'] {
+    &.c-tracker__detail {
+      -webkit-filter: grayscale(100%) brightness(50%);
+      filter: grayscale(100%) brightness(50%);
+      &.selected,
+      &:hover {
+        -webkit-filter: none;
+        filter: none;
+        border-left: 4px solid $color;
+      }
+    }
+
+    .c-tracker__detail__subtitle {
+      word-break: break-word;
+      width: 100%;
+      color: $color;
+    }
+  }
+}

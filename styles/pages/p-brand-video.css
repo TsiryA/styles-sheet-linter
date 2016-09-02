@@ -1,0 +1,25 @@
+
+
+@each $project-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+	[data-project-level='$(i)'].brand-detail-page {
+		.brand__video--subtitle {
+      color: $project-color;
+    }
+    .row.c-section-brand-video {
+      background-color: $project-color;
+    }
+    .brand-video-banner {
+      .btn--video-play {
+        &:hover {
+          .icon.play-button {
+            color: $project-color;
+          }
+        }
+        .icon.play-button {
+          color: $project-color;
+        }
+      }
+    }
+
+  }
+}

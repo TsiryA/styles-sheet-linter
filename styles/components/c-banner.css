@@ -1,0 +1,386 @@
+$banner-namespace: c-banner !default;
+
+@each $banner-text-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
+  [data-theme='$(i)'].c-banner__text-container {
+    .c-banner__subtitle {
+      color: $banner-text-color;
+    }
+  }
+  [data-theme='$(i)'].c-banner__list__container {
+    background-color: $banner-text-color;
+    padding: 25px;
+    margin-bottom: -2px;
+
+    .c-banner__button {
+      color: $banner-text-color;
+      background-color: $secondary-color-04;
+    }
+  }
+}
+
+.$(banner-namespace) {
+  display: inline-block;
+  width: 100%;
+}
+
+.$(banner-namespace)--video {
+  .$(banner-namespace) {
+    &__text-container {
+      padding: 40px 15px 20px;
+
+      @media (--landscape-tablets) {
+        max-width: 100%;
+      }
+
+      @media (--desktop) {
+        max-width: 565px;
+        padding: 0;
+      }
+    }
+
+    &__content:first-child {
+      @media (--landscape-tablets) {
+        width: 950px;
+      }
+      @media (--desktop) {
+        position: absolute;
+        width: 1112px;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 2;
+      }
+    }
+
+    &__video-container {
+      position: relative;
+    }
+
+    &__title {
+      @mixin font-settings $font-size-medium, 24px, bold, bold;
+      color: $white;
+      margin: 0;
+      text-transform: uppercase;
+      @media (--desktop) {
+        @mixin font-settings $font-size-large, 34px, bold, bold;
+      }
+      .homepage-video-banner & {
+        opacity: 0;
+      }
+    }
+
+    &__subtitle {
+      @mixin font-settings $font-size-large, 34px, bold, bold;
+      color: $primary-color-01;
+      margin: 0;
+      text-transform: uppercase;
+      @media (--desktop) {
+        @mixin font-settings 55px, 55px, bold, bold;
+      }
+      .homepage-video-banner & {
+        opacity: 0;
+      }
+    }
+
+    &__video {
+      width: 100%;
+    }
+  }
+
+  .homepage-video-banner & {
+    .btn--video-play {
+      .icon.play-button {
+        opacity: 0;
+        @media (--all-phones) {
+          color: $primary-color-01;
+        }
+        &:after {
+          @media (--all-phones) {
+            color: $secondary-color-04 ;
+          }
+        }
+      }
+    }
+  }
+}
+
+.$(banner-namespace)--information {
+  display: block;
+  .$(banner-namespace) {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    &__content:first-child {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      transform: translate(-50%, 0);
+      text-align: left;
+      left: 50.9%;
+      padding: 15px 30px;
+      @media (--all-phones){
+        margin-left: 15px;
+        padding-bottom: 70px;
+      }
+      @media (--all-tablets){
+        padding-bottom: 70px;
+      }
+      @media (--landscape-tablets) {
+        width: 100%;
+        padding: 15px 30px;
+      }
+      @media (--desktop) {
+        width: 1170px;
+        padding: 0 20px 70px 20px;
+      }
+    }
+    &__text-container {
+      width: 100%;
+      @media (--desktop) {
+        width: 60%;
+      }
+    }
+    &__title {
+      text-transform: uppercase;
+      @mixin font-settings $font-size-small, 24px, bold, bold;
+      color: $white;
+      margin: 0;
+      @media (--desktop) {
+        @mixin font-settings $font-size-large, 34px, bold, bold;
+      }
+    }
+    &__subtitle {
+      text-transform: uppercase;
+      @mixin font-settings $font-size-large, 34px, bold, bold;
+      margin: 0;
+      @media (--desktop) {
+        @mixin font-settings 55px, 55px, bold, bold;
+      }
+    }
+    &__content:first-child {
+
+    }
+  }
+}
+
+/*.$(banner-namespace)--information {
+  display: block;
+  .$(banner-namespace) {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    &__content:first-child {
+      @extend .container;
+
+    }
+    &__text-container {
+      bottom: 40px;
+      left: 20px;
+      position: absolute;
+      @media (--landscape-tablets) {
+        bottom: 25px;
+        left: 35px;
+      }
+      @media (--desktop) {
+        position: absolute;
+        max-width: 624px;
+        bottom: 0;
+        padding: 0;
+        z-index: 2;
+        left: 0;
+      }
+    }
+    &__title {
+      text-transform: uppercase;
+      @mixin font-settings $font-size-small, 24px, bold, bold;
+      color: $white;
+      margin: 0;
+      @media (--desktop) {
+        @mixin font-settings $font-size-large, 34px, bold, bold;
+      }
+    }
+    &__subtitle {
+      text-transform: uppercase;
+      @mixin font-settings $font-size-large, 34px, bold, bold;
+      margin: 0;
+      @media (--desktop) {
+        @mixin font-settings 55px, 55px, bold, bold;
+      }
+    }
+    &__content:first-child {
+      @media (--landscape-tablets) {
+        width: 950px;
+      }
+      @media (--desktop) {
+        position: absolute;
+        width: 1112px;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        z-index: 2;
+      }
+    }
+  }
+}*/
+
+.$(banner-namespace)--button {
+  padding: 20px;
+  @media (--all-tablets) {
+    padding: 80px;
+  }
+  @media (--desktop) {
+    padding: 28px 100px;
+  }
+  .$(banner-namespace) {
+    &__text {
+      font-size: $font-size-xsmall;
+      a {
+        color: $secondary-color-04;
+        text-decoration: underline;
+        &:hover {
+          color: $secondary-color-04;
+        }
+      }
+    }
+
+    &__title {
+      @mixin font-settings $font-size-large, 34px, bold, bold;
+      color: $white;
+      margin: 0;
+    }
+
+    &__subtitle {
+      @mixin font-settings $font-size-mega-large, 60px, bold, bold;
+      color: $primary-color-01;
+      margin: 0;
+    }
+    &__button-container {
+      text-align: center;
+      @media (--desktop) {
+        text-align: right;
+      }
+      .btn {
+        @media (--desktop) {
+          padding: 10px 45px;
+        }
+      }
+    }
+  }
+}
+
+.$(banner-namespace)--list {
+  .c-banner__list__details {
+    .c-banner__button {
+      white-space: nowrap;
+      @media (--landscape-tablets) {
+        padding: 10px 65px;
+      }
+      @media (--desktop) {
+        padding: 10px 105px;
+      }
+    }
+  }
+
+}
+.registration-return-banner,
+.registration-welcome-first-banner {
+  .c-information__title--container {
+    @media (--all-phones) {
+      padding: 0;
+    }
+  }
+}
+.registration-return,
+.registration-welcome-first {
+  margin-bottom: 60px;
+}
+
+.cookie-banner {
+  display: none;
+  .c-banner__button-container {
+    font-family: $default-font-family;
+    .btn {
+      &:hover {
+        background-color: $secondary-color-01;
+        color: $secondary-color-09;
+      }
+    }
+  }
+}
+
+.$(banner-namespace)--list {
+  text-transform: uppercase;
+
+  .icon {
+    color: $secondary-color-04;
+    font-size: $font-size-extra-large;
+  }
+
+  .$(banner-namespace) {
+    &__list__details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*margin-top: 20px;*/
+      @media (--desktop) {
+        /*margin-top: 10px;*/
+      }
+    }
+
+    &__list__icon .icon {
+      vertical-align: bottom;
+    }
+
+    &__list__content {
+      display: inline-block;
+      padding-left: 10px;
+      border-left: 1px solid;
+      color: $secondary-color-04;
+      text-align: left;
+    }
+
+    &__number {
+      @mixin font-settings $font-size-small, 1, bold, bold, 1px;
+
+      &__text {
+        margin-left: 5px;
+      }
+    }
+
+    &__title {
+      @mixin font-settings $font-size-tiny, 15px, normal, , 1px;
+      display: block;
+    }
+
+    &__button {
+      display: none;
+      line-height: 18px;
+      &.submitted {
+        display: block;
+      }
+    }
+  }
+}
+
+.cookie-banner .c-banner--button {
+  @media (--all-tablets) {
+    padding:28px 80px;
+  }
+}
+
+.js-winners-submit {
+  margin-top: 20px;
+  @media (--desktop) {
+    padding-bottom: 20px;
+  }
+}
+
+.sticky-wrapper{
+  /*class by jquery-sticky plugin*/
+  height: 100% !important;
+}
+
+.c-banner__content--img img{
+  opacity: 0;
+}

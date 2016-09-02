@@ -1,0 +1,8 @@
+/* @each $text-color, $i in ($secondary-color-07, $secondary-color-08, $secondary-color-04, $secondary-color-04, $secondary-color-04), (1, 2, 3, 4, 5) {
+  [data-theme='$(i)'] {
+    .$(section-namespace) {
+      color: $text-color;
+    }
+  }
+}
+ */
