@@ -1,7 +1,7 @@
 $button-namespace: btn !default;
 
 .$(button-namespace) {
-  /* For Login & Registration pages*/
+  /* For Login & Registration pages */
   .btn&--social-icon {
     width: 100%;
     display: block;
@@ -15,24 +15,24 @@ $button-namespace: btn !default;
     &:focus {
       color: $white;
     }
+
     @media (--desktop) {
       width: auto;
       margin-bottom: 58px;
     }
     .icon {
       position: absolute;
-      left:0;
+      left: 0;
       margin: 5px 0 0 20px;
       font-size: 22px;
     }
-    /* &:hover .icon {
-      color:$secondary-color-04;
-    } */
   }
-
   &--twitter {
-    background-color:$color-primary-blue;
-    &:hover,&:hover .icon,  &:active, &.active {
+    background-color: $color-primary-blue;
+    &:hover,
+    &:hover .icon,
+    &:active,
+    &.active {
       color: $color-primary-blue !important;
       background-color: transparent !important;
       border-color: $color-primary-blue !important;
@@ -40,8 +40,11 @@ $button-namespace: btn !default;
   }
 
   &--facebook {
-    background-color:$color-secondary-blue;
-    &:hover, &:hover .icon, &:active, &.active {
+    background-color: $color-secondary-blue;
+    &:hover,
+    &:hover .icon,
+    &:active,
+    &.active {
       color: $color-secondary-blue !important;
       background-color: transparent !important;
       border-color: $color-secondary-blue !important;
@@ -50,7 +53,10 @@ $button-namespace: btn !default;
 
   &--google {
     background-color: $color-red;
-    &:hover, &:hover .icon, &:active, &.active {
+    &:hover,
+    &:hover .icon,
+    &:active,
+    &.active {
       color: $color-red !important;
       background-color: transparent !important;
       border-color: $color-red !important;
@@ -137,15 +143,6 @@ $button-tertiary-hover-color: $secondary-color-06;
   cursor: pointer;
 }
 
-/*.btn {
-  &:focus,
-  &:active {
-    outline: 0 !important;
-    border: 0 !important;
-    box-shadow: 0 !important;
-    outline-offset: 0;
-  }
-}*/
 
 .$(button-namespace) {
   display: inline-block;
@@ -176,20 +173,29 @@ $button-tertiary-hover-color: $secondary-color-06;
     align-items: center;
     justify-content: space-around;
   }
-  &:focus, &:active:focus, &.active:focus, &.focus, &:active.focus, &.active.focus {
+  &:focus,
+  &:active:focus,
+  &.active:focus,
+  &.focus,
+  &:active.focus,
+  &.active.focus {
     outline: 0 !important;
     outline-offset: 0 !important;
   }
-  &:hover, &:focus, &.focus {
-    color: #333333;
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $secondary-color-04;
     text-decoration: none;
   }
-  &:active, &.active {
+  &:active,
+  &.active {
     outline: 0 !important;
     background-image: none;
     box-shadow: none;
   }
-  &.disabled, &[disabled] {
+  &.disabled,
+  &[disabled] {
     cursor: not-allowed;
     background-color: $color-disabled;
     box-shadow: none;
@@ -200,17 +206,25 @@ $button-tertiary-hover-color: $secondary-color-06;
       color: $button-primary-color;
       background-color: $button-primary-bg-color;
       border-color: $button-primary-border;
-      &:focus, &.focus {
+      &:focus,
+      &.focus {
         color: $button-primary-color;
         background-color: darken($button-primary-bg-color, 10%);
         border-color: $button-primary-border;
       }
-      &:hover, &:active, &.active {
+      &:hover,
+      &:active,
+      &.active {
         color: $button-primary-bg-color;
         background-color: $button-primary-hover-bg;
         border-color: $button-primary-border;
       }
-      &:active:hover, &.active:hover, &:active:focus, &.active:focus, &:active.focus, &.active.focus {
+      &:active:hover,
+      &.active:hover,
+      &:active:focus,
+      &.active:focus,
+      &:active.focus,
+      &.active.focus {
         color: $button-primary-bg-color;
         background-color: $button-primary-hover-bg;
         border-color: $button-primary-border;
@@ -218,7 +232,12 @@ $button-tertiary-hover-color: $secondary-color-06;
       &:active, &.active {
         background-image: none;
       }
-      &.disabled:hover, &[disabled]:hover, &.disabled:focus, &[disabled]:focus, &.disabled.focus, &[disabled].focus {
+      &.disabled:hover,
+      &[disabled]:hover,
+      &.disabled:focus,
+      &[disabled]:focus,
+      &.disabled.focus,
+      &[disabled].focus {
         background-color: $color-disabled;
         border-color: 2px solid;
       }
@@ -230,25 +249,39 @@ $button-tertiary-hover-color: $secondary-color-06;
       color: $button-secondary-color;
       background-color: $button-secondary-bg-color;
       border-color: $button-secondary-border;
-      &:focus, &.focus {
+      &:focus,
+      &.focus {
         color: $button-secondary-color;
         background-color: darken($button-secondary-bg-color, 10%);
         border-color: $button-secondary-border;
       }
-      &:hover, &:active, &.active {
+      &:hover,
+      &:active,
+      &.active {
         color: $button-secondary-bg-color;
         background-color: $button-secondary-hover-bg;
         border-color: $button-secondary-border;
       }
-      &:active:hover, &.active:hover, &:active:focus, &.active:focus, &:active.focus, &.active.focus {
+      &:active:hover,
+      &.active:hover,
+      &:active:focus,
+      &.active:focus,
+      &:active.focus,
+      &.active.focus {
         color: $button-secondary-bg-color;
         background-color: $button-secondary-hover-bg;
         border-color: $button-secondary-border;
       }
-      &:active, &.active {
+      &:active,
+      &.active {
         background-image: none;
       }
-      &.disabled:hover, &[disabled]:hover, &.disabled:focus, &[disabled]:focus, &.disabled.focus, &[disabled].focus {
+      &.disabled:hover,
+      &[disabled]:hover,
+      &.disabled:focus,
+      &[disabled]:focus,
+      &.disabled.focus,
+      &[disabled].focus {
         background-color: $color-disabled;
         border-color: 2px solid;
       }
@@ -259,62 +292,80 @@ $button-tertiary-hover-color: $secondary-color-06;
     color: $button-default-color;
     background-color: $button-default-bg-color;
     border-color: $button-default-border;
-    &:focus, &.focus {
+    &:focus,
+    &.focus {
       color: $button-default-color;
       background-color: darken($button-default-bg-color, 10%);
       border-color: $button-default-border;
     }
-    &:hover, &:active, &.active {
+    &:hover,
+    &:active,
+    &.active {
       color: $button-default-bg-color;
       background-color: $button-default-hover-bg;
       border-color: $button-default-border;
     }
-    &:active:hover, &.active:hover, &:active:focus, &.active:focus, &:active.focus, &.active.focus {
+    &:active:hover,
+    &.active:hover,
+    &:active:focus,
+    &.active:focus,
+    &:active.focus,
+    &.active.focus {
       color: $button-default-bg-color;
       background-color: $button-default-hover-bg;
       border-color: $button-default-border;
     }
-    &:active, &.active {
+    &:active,
+    &.active {
       background-image: none;
     }
-    &.disabled:hover, &[disabled]:hover, &.disabled:focus, &[disabled]:focus, &.disabled.focus, &[disabled].focus {
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled.focus,
+    &[disabled].focus {
       background-color: $color-disabled;
       border-color: 2px solid;
     }
   }
-
   &-tertiary {
     color: $primary-color-01;
     background-color: $button-tertiary-bg-color;
     border-color: $button-tertiary-border;
-    &:focus, &.focus {
+    &:focus,
+    &.focus {
       color: $button-tertiary-color;
       background-color: darken($button-tertiary-bg-color, 10%);
       border-color: $button-tertiary-border;
     }
-    &:hover, &:active, &.active {
+    &:hover,
+    &:active,
+    &.active {
       color: $button-tertiary-hover-color;
       background-color: $button-tertiary-hover-bg;
       border-color: $button-tertiary-border;
     }
-    &:active:hover, &.active:hover, &:active:focus, &.active:focus, &:active.focus, &.active.focus {
+    &:active:hover,
+    &.active:hover,
+    &:active:focus,
+    &.active:focus,
+    &:active.focus,
+    &.active.focus {
       color: $button-tertiary-hover-color;
       background-color: $button-tertiary-hover-bg;
       border-color: $button-tertiary-border;
     }
-    &:active, &.active {
+    &:active,
+    &.active {
       background-image: none;
-    }
-    &.disabled:hover, &[disabled]:hover, &.disabled:focus, &[disabled]:focus, &.disabled.focus, &[disabled].focus {
-      /*background-color: $color-disabled;*/
-      /*border-color: 2px solid;*/
     }
   }
 }
 
 .btn-primary--green {
   font-family: $default-font-family;
-  background-color: #0DF798; /* $primary-color-02 */
+  background-color: $primary-color-02;
 }
 
 .btn-upload {
@@ -322,9 +373,11 @@ $button-tertiary-hover-color: $secondary-color-06;
   font-family: $font-family-regular-bold;
   .icon {
     margin: -2px 0 0 30%;
+
     @media (--portrait-tablets) {
       margin: 5px 0 0 25%;
     }
+
     @media (--desktop) {
       margin: 5px 0 0 30%;
     }
@@ -341,26 +394,15 @@ $button-tertiary-hover-color: $secondary-color-06;
     font-size: $font-size-medium;
   }
   &:hover .icon-tick {
-    color:$secondary-color-06;
+    color: $secondary-color-06;
   }
 }
 
 
-.btn-primary.btn-block{
-  &:focus, &:active{
-    border: 0px solid $black;
+.btn-primary.btn-block {
+  &:focus,
+  &:active {
+    border: 0 solid $black;
     line-height: 29px;
   }
 }
-
-/*@each $text-color, $i in ($primary-color-01, $primary-color-02, $primary-color-03), (1, 2, 3) {
-  [data-theme='$(i)'] .js-submit-btn.disabled {
-    pointer-events: auto;
-    &:hover {
-      background-color: $text-color !important;
-      span {
-        color: #333 !important;
-      }
-    }
-  }
-}*/
